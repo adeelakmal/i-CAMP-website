@@ -2,7 +2,7 @@ import "./App.css";
 import Nav from "./components/Nav";
 import Hero from "./components/Hero";
 import Features from "./components/Features";
-import Pricing from "./components/Pricing";
+import Services from "./components/Services";
 import Testimonials from "./components/Testimonials";
 import Contact from "./components/Contact";
 import Footer from "./components/Footer";
@@ -13,7 +13,7 @@ function App() {
       <Nav/>
       <Hero/>
       <Features />
-      <Pricing/>
+      <Services/>
       <Testimonials />
       <Footer/>
     </>
