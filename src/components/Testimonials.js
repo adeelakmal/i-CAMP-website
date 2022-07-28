@@ -20,13 +20,9 @@ function Testimonials() {
                       <i className="bi bi-chat-right-quote-fill text-primary fs-1"></i>
                     </div>
                     <div className="ms-4">
-                      <p className="mb-1">
-                        Thank you for putting together such a great product. We
-                        loved working with you and the whole team, and we will
-                        be recommending you to others!
-                      </p>
+                      <p className="mb-1"> "You guys are rockstars"</p>
                       <div className="small text-muted">
-                        - Client Name, Location
+                        - Ava Monter, Fluid Finance
                       </div>
                     </div>
                   </div>

@@ -6,6 +6,11 @@ function Features() {
       {/* Features section */}
       <section className="py-5 border-bottom" id="features">
         <div className="container px-5 my-5">
+          <div className="row">
+            <div className="text-center mb-5">
+              <h2 className="fw-bolder">Our Services</h2>
+            </div>
+          </div>
           <div className="row gx-5">
             <div className="col-lg-4 mb-5 mb-lg-0">
               <div className="feature bg-primary bg-gradient text-white rounded-3 mb-3">
