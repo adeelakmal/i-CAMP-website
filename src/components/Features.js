@@ -1,18 +1,20 @@
 import React from "react";
+import { useInView } from 'react-intersection-observer';
+
 
 function Features() {
 
-  const style = ``
-  ;
-  
+  const style = ``;
+  const { ref, inView } = useInView();
+
   return (
     <>
       <style>{style}</style>
       {/*Features section */}
       <div className="lead text-center mt-5">
-            <h2 className="fw-bold">OUR SERVICES</h2>
-          </div>
-      <div className="Container">
+        <h2 className="fw-bold">OUR SERVICES</h2>
+      </div>
+      <div className="container">
         <div className="row">
           <div className="col p-5">
             <p  className="lead text-black-50 mb-4 fw-normal">
@@ -33,14 +35,14 @@ function Features() {
         <div className="col">
           <figure>
             <svg viewBox="0 0 63.6619772368 63.6619772368">
-              <circle
-                className ="pie1"
+              <circle  ref={ref}
+                className ={`${inView? "pie1":""}`}
                 cx="31.8309886184"
                 cy="31.8309886184"
                 r="15.9154943092"
                 />
               <circle
-                className ="pie2"
+                className ={`${inView? "pie2":""}`}
                 cx="31.8309886184"
                 cy="31.8309886184"
                 r="15.9154943092"
@@ -49,8 +51,8 @@ function Features() {
             
           </figure>
           <div className="lead text-center d-flex justify-content-center mt-2">
-            <li className="bullet1"><span className= "list">10 in Tech</span> </li>
-            <li className="bullet2"><span className = "list">17 in Business</span> </li>
+            <li className="bullet1"><span className= "list">10 in Tech </span> </li>
+            <li className="bullet2"><span className = "list"> 17 in Business</span> </li>
           </div>
         </div>
       </div>

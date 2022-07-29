@@ -7,9 +7,9 @@ export default function Services() {
         <div className="container px-5 my-5">
           <div className="text-center mb-5">
             <h2 className="fw-bolder">BUSINESS DEVELOPMENT</h2>
-            <p className="lead mb-0">I-CAMP | Our Services</p>
+            <p className="lead mb-0">i-CAMP | Our Services</p>
           </div>
-          <div className="row gx-4 gy-4 justify-content-left">
+          <div className="row gx-4 gy-4 justify-content-center">
             <div className="col-lg-6 col-xl-4">
               <div className="card custom mb-5 mb-xl-0 mh-100">
                 <div className="card-body p-5">
@@ -129,36 +129,13 @@ export default function Services() {
                 </div>
               </div>
             </div>
-
-            <div className="col-lg-6 col-xl-4">
-              <div className="card custom mb-5 mb-xl-0">
-                <div className="card-body p-5">
-                  <div className="medium text-uppercase fw-bold p-1">
-                    <i className="bi bi-star-fill text-warning"></i>
-                    Inventory/Dropshipping:
-                  </div>
-                  <ul className="list-unstyled mb-4">
-                    <li className="mb-2">
-                      <i className="bi bi-check text-primary"></i>
-                      We use cutting-edge software and data-science techniques
-                      to manage inventory for our clients
-                    </li>
-                  </ul>
-                  {/*<div className="d-grid">*/}
-                  {/*  <a className="btn btn-outline-primary" href="#!">*/}
-                  {/*    Contact Us*/}
-                  {/*  </a>*/}
-                  {/*</div>*/}
-                </div>
-              </div>
-            </div>
           </div>
         </div>
 
         <div className="container px-5 my-5">
           <div className="text-center mb-5">
             <h2 className="fw-bolder">SOFTWARE</h2>
-            <p className="lead mb-0">I-CAMP | Our Services</p>
+            <p className="lead mb-0">i-CAMP | Our Services</p>
           </div>
           <div className="row gx-4 gy-4 justify-content-center">
             <div className="col-lg-6 col-xl-4">
