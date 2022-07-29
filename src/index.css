@@ -9,13 +9,21 @@
 .btn-outline-primary{
   color:  #253862!important;
 } */
+
+.buttonContact {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  padding: 0rem 3rem !important;
+}
+
 .card.custom{
-  min-height: 24.5rem;
+  min-height: 23.7rem;
 }
 .card-body{
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: flex-start;
 }
 
 /* width */
@@ -126,3 +134,22 @@ circle {
   50%,100% {stroke-dasharray: 0,40,60,0;}
 }
 
+.bullet2 {  
+  color: hsl(180,70%,50%);
+  font-size: xx-large;
+  position: relative;
+  left: 4%;
+}
+.bullet1 {
+  color: hsl(180,70%,20%);
+  font-size: xx-large;
+}
+
+
+.list {
+  position: relative;
+  bottom: 12%;
+  right: 14%;
+  font-size: 16px;  
+  color: black;
+}
