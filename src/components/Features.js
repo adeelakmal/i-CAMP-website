@@ -57,8 +57,12 @@ function Features() {
               </svg>
             </figure>
             <div className="lead text-center d-flex justify-content-center mt-2">
-              <li className="mx-3">10 in Tech </li>
-              <li>17 in Business</li>
+              <li className="bullet1 mx-3">
+                <span className="list">10 in Tech</span>
+              </li>
+              <li className="bullet2">
+                <span className="list">17 in Business</span>
+              </li>
             </div>
           </div>
         </div>
