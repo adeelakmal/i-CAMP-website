@@ -1,65 +1,68 @@
 import React from "react";
 
 function Features() {
+
+  const style = `
+  li::before {
+  
+    color: red;
+    font-weight: bold; 
+    display: inline-block; 
+    width: 1em; 
+    margin-left: -1em; 
+  }`;
+  
   return (
     <>
-      {/* Features section */}
-      <section className="py-5 border-bottom" id="features">
-        <div className="container px-5 my-5">
-          <div className="row">
-            <div className="text-center mb-5">
-              <h2 className="fw-bolder">Our Services</h2>
-            </div>
+      <style>{style}</style>
+      {/*Features section */}
+      <div className="lead text-center mt-5">
+            <h2 className="fw-bold">OUR SERVICES</h2>
           </div>
-          <div className="row gx-5">
-            <div className="col-lg-4 mb-5 mb-lg-0">
-              <div className="feature bg-primary bg-gradient text-white rounded-3 mb-3">
-                <i className="bi bi-collection"></i>
-              </div>
-              <h2 className="h4 fw-bolder">Featured title</h2>
-              <p>
-                Paragraph of text beneath the heading to explain the heading.
-                We'll add onto it with another sentence and probably just keep
-                going until we run out of words.
-              </p>
-              <a className="text-decoration-none" href="#!">
-                Call to action
-                <i className="bi bi-arrow-right"></i>
-              </a>
-            </div>
-            <div className="col-lg-4 mb-5 mb-lg-0">
-              <div className="feature bg-primary bg-gradient text-white rounded-3 mb-3">
-                <i className="bi bi-building"></i>
-              </div>
-              <h2 className="h4 fw-bolder">Featured title</h2>
-              <p>
-                Paragraph of text beneath the heading to explain the heading.
-                We'll add onto it with another sentence and probably just keep
-                going until we run out of words.
-              </p>
-              <a className="text-decoration-none" href="#!">
-                Call to action
-                <i className="bi bi-arrow-right"></i>
-              </a>
-            </div>
-            <div className="col-lg-4">
-              <div className="feature bg-primary bg-gradient text-white rounded-3 mb-3">
-                <i className="bi bi-toggles2"></i>
-              </div>
-              <h2 className="h4 fw-bolder">Featured title</h2>
-              <p>
-                Paragraph of text beneath the heading to explain the heading.
-                We'll add onto it with another sentence and probably just keep
-                going until we run out of words.
-              </p>
-              <a className="text-decoration-none" href="#!">
-                Call to action
-                <i className="bi bi-arrow-right"></i>
-              </a>
-            </div>
+      <div className="Container">
+        <div className="row">
+          <div className="col p-5">
+            <p  className="lead text-black-50 mb-4 fw-normal">
+            i-CAMP is a conglomeration of award-winning talent from a variety of 
+            domains, owing to the multi-faceted nature of institutions.
+            </p>
+            <p className="lead text-black-50 mb-4 fw-normal">
+            We have nurtured two domains extensively,
+            </p>
+            <p className="lead text-black-50 mb-4 fw-normal">
+              <span className="fw-bolder">Business</span> Development & <span className="fw-bolder">Software</span> Development 
+          </p>
+          <p className="lead text-black-50 mb-4 fw-normal">
+          We have <span className="fw-bolder">generated</span> revenue in the order of <span className="fw-bolder">millions</span> and have 
+          ensured customer satisfaction, our KPI being our <span className="fw-bolder">low churn</span> rate
+          </p>
+          </div>
+        <div className="col">
+          <figure>
+            <svg viewBox="0 0 63.6619772368 63.6619772368">
+              <circle
+                className ="pie1"
+                cx="31.8309886184"
+                cy="31.8309886184"
+                r="15.9154943092"
+                />
+              <circle
+                className ="pie2"
+                cx="31.8309886184"
+                cy="31.8309886184"
+                r="15.9154943092"
+                />
+            </svg>
+            
+          </figure>
+          <div className="lead text-center d-flex justify-content-center mt-2">
+            <li className="mx-3">10 in Tech </li>
+            <li>17 in Business</li>
           </div>
         </div>
-      </section>
+      </div>
+    </div>
+
     </>
   );
 }
