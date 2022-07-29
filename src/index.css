@@ -9,11 +9,20 @@
 .btn-outline-primary{
   color:  #253862!important;
 } */
+
+.buttonContact{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 0rem 3rem !important;
+}
+
+
 .card.custom{
-  min-height: 24.5rem;
+  min-height: 23.7rem;
 }
 .card-body{
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: flex-start;
 }
