@@ -2,15 +2,8 @@ import React from "react";
 
 function Features() {
 
-  const style = `
-  li::before {
-  
-    color: red;
-    font-weight: bold; 
-    display: inline-block; 
-    width: 1em; 
-    margin-left: -1em; 
-  }`;
+  const style = ``
+  ;
   
   return (
     <>
@@ -56,8 +49,8 @@ function Features() {
             
           </figure>
           <div className="lead text-center d-flex justify-content-center mt-2">
-            <li className="mx-3">10 in Tech </li>
-            <li>17 in Business</li>
+            <li className="bullet1"><span className= "list">10 in Tech</span> </li>
+            <li className="bullet2"><span className = "list">17 in Business</span> </li>
           </div>
         </div>
       </div>

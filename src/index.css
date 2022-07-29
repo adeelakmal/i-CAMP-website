@@ -103,3 +103,22 @@ circle {
   50%,100% {stroke-dasharray: 0,40,60,0;}
 }
 
+.bullet2 {  
+  color: hsl(180,70%,50%);
+  font-size: xx-large;
+  position: relative;
+  left: 4%;
+}
+.bullet1 {
+  color: hsl(180,70%,20%);
+  font-size: xx-large;
+}
+
+
+.list {
+  position: relative;
+  bottom: 12%;
+  right: 14%;
+  font-size: 16px;  
+  color: black;
+}
