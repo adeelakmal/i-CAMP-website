@@ -44,9 +44,9 @@ function Features() {
             </p>
           </div>
           <div className="col-9 col-md-6  py-5">
-            <figure>
+            <figure ref={ref}>
               <svg viewBox="0 0 63.6619772368 63.6619772368">
-                <circle  ref={ref}
+                <circle
                 className ={`${inView? "pie1":""}`}
                   cx="31.8309886184"
                   cy="31.8309886184"
@@ -59,7 +59,6 @@ function Features() {
                 cy="31.8309886184"
                 r="15.9154943092"
                 />
-              
             </svg>
             
           </figure>
