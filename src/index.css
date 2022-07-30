@@ -86,7 +86,7 @@ svg {
   max-height: 18rem;
 }
 circle {
-    fill:rgba(0,0,0,0);
+  fill:rgba(0,0,0,0);
   stroke-width:31.8309886184;
   stroke-dasharray: 0,0,0,100;
   stroke-dashoffset: 25;
@@ -144,7 +144,7 @@ circle {
   color: hsl(180,70%,50%);
   font-size: xx-large;
   position: relative;
-  left: 4%;
+  left: 7%;
 }
 .bullet1 {
   color: hsl(180,70%,20%);
