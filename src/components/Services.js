@@ -1,6 +1,13 @@
 import React from "react";
 
 export default function Services() {
+  const scroll = () => {
+    const scrollingElement = document.scrollingElement || document.body;
+    // const Footer = querySelector("footer");
+    // console.log(scrollingElement.scrollHeight - 1300);
+    let Scroll = scrollingElement.scrollHeight;
+    scrollingElement.scrollTop = Scroll;
+  };
   return (
     <>
       <section className="bg-light py-5 border-bottom">
@@ -258,16 +265,20 @@ export default function Services() {
               </div>
             </div>
           </div>
-        </div>
-          <div className="row gx-4 gy-4 justify-content-center">
+          <div className="row mt-4 justify-content-center">
             <div className="col-lg-6 col-xl-4">
-        <div className="buttonContact">
-          <a className="btn btn-outline-primary" href="#!">
-            Contact Us
-            </a>
-          </div>
+              <div className="buttonContact">
+                <a
+                  className="btn btn-outline-primary"
+                  onClick={scroll}
+                  href="#!"
+                >
+                  Contact Us
+                </a>
+              </div>
             </div>
           </div>
+        </div>
       </section>
     </>
   );
