@@ -2,8 +2,7 @@ import React from "react";
 import { useInView } from "react-intersection-observer";
 
 function Features() {
-
-  const { ref, inView } = useInView();
+  const { ref, inView } = useInView({ delay: 800, triggerOnce: true });
 
   const style = `
   li::before {
@@ -30,7 +29,7 @@ function Features() {
               of domains, owing to the multi-faceted nature of institutions.
             </p>
             <p className="lead text-black-50 mb-4 fw-normal">
-            We have nurtured two domains extensively,
+              We have nurtured two domains extensively,
             </p>
             <p className="lead text-black-50 mb-4 fw-normal">
               <span className="fw-bolder">Business</span> Development &{" "}
@@ -45,31 +44,35 @@ function Features() {
           </div>
           <div className="col-9 col-md-6  py-5">
             <figure ref={ref}>
-              <svg viewBox="0 0 63.6619772368 63.6619772368">
+              <svg
+                className={`${inView ? "view" : "noView"}`}
+                viewBox="0 0 63.6619772368 63.6619772368"
+              >
                 <circle
-                className ={`${inView? "pie1":""}`}
+                  className="pie1"
                   cx="31.8309886184"
                   cy="31.8309886184"
                   r="15.9154943092"
-        
                 />
-              <circle
-                className ={`${inView? "pie2":""}`}
-                cx="31.8309886184"
-                cy="31.8309886184"
-                r="15.9154943092"
+                <circle
+                  className="pie2"
+                  cx="31.8309886184"
+                  cy="31.8309886184"
+                  r="15.9154943092"
                 />
-            </svg>
-            
-          </figure>
-          <div className="lead text-center d-flex justify-content-center mt-2">
-            <li className="bullet1"><span className= "list">10 in Tech </span> </li>
-            <li className="bullet2"><span className = "list"> 17 in Business</span> </li>
+              </svg>
+            </figure>
+            <div className="lead text-center d-flex justify-content-center mt-2">
+              <li className="bullet1">
+                <span className="list">10 in Tech </span>{" "}
+              </li>
+              <li className="bullet2">
+                <span className="list"> 17 in Business</span>{" "}
+              </li>
+            </div>
           </div>
         </div>
       </div>
-    </div>
-
     </>
   );
 }

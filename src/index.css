@@ -159,3 +159,11 @@ circle {
   font-size: 16px;  
   color: black;
 }
+
+/* for lazy loading of pie chart */
+.view{
+  display: block;
+}
+.noView{
+  display: none;
+}
