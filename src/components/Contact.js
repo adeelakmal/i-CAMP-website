@@ -4,57 +4,63 @@ import React, { useState, useEffect } from "react";
 export default function Contact() {
   const [sendRequest, setSendRequest] = useState(false);
   const [contactData, setContactData] = useState({
-    'name': '',
-    'email': '',
-    'phone': '',
-    'describe': '',
-    'status': '',
+    name: "",
+    email: "",
+    phone: "",
+    describe: "",
+    status: "",
   });
-  
-  const change = (event) => {
-    setContactData({
-      ...contactData,
-      [event.target.name]: event.target.value,
-      
-    });
-  }
-  var doThis = () => {
-    console.log(contactData.name)
-  }
-  
-//   var contactFormData = new FormData();
-//
-//   const SubmitForm = () => {
-//     contactFormData.append('name', contactData.name)
-//     contactFormData.append('email', contactData.email)
-//     contactFormData.append('phone', contactData.phone)
-//     contactFormData.append('describe', contactData.describe)
-//   }
-//   useEffect(() => {
-//     if (sendRequest) {
-//         fetch(`http://127.0.0.1:8000/ask/`, {
-//       method: 'POST',
-//       headers: {
-//         "Access-Control-Allow-Origin": "*",
-//         'Content-Type': 'application/json',
-//         "Authorization": "Token 757ab0fafa75f4c43646eedc5c8a83fc6b358592"
-//       },
-//    body: JSON.stringify({
-//      // your expected POST request payload goes here
-//         name: "Shaheer",
-//         email: "shaheerr7@gmail.com",
-//         phone:"3127950074",
-//         describe: "Help me"
-//       })
-// })
-//   .then(resp => resp.json())
-//   .then(resp => console.log(resp)).catch(error=> console.log(error))
-//     }
-//       setSendRequest(false);
-//     },[sendRequest]);
-//
+  const [Name, setName] = useState("");
+  const [Email, setEmail] = useState("");
+  const [Phone, setPhone] = useState("");
+  const [Message, setMessage] = useState("");
 
-return (
+  // const change = (event) => {
+  //   setContactData({
+  //     ...contactData,
+  //     [event.target.name]: event.target.value,
+
+  //   });
+  // }
+  // var doThis = (event) => {
+  //   event.preventDefault();
+  //   console.log(`This is the name ${Name}`);
+  // };
+
+  var contactFormData = new FormData();
+  const SubmitForm = (event) => {
+    event.preventDefault();
+    contactFormData.append("name", Name);
+    contactFormData.append("email", Email);
+    contactFormData.append("phone", Phone);
+    contactFormData.append("describe", Message);
+    setSendRequest(true);
+  };
+  useEffect(() => {
+    if (sendRequest) {
+      fetch(`http://127.0.0.1:8000/ask/`, {
+        method: "POST",
+        headers: {
+          // "Access-Control-Allow-Origin": "*",
+          "Content-Type": "application/json",
+          Authorization: "Token 757ab0fafa75f4c43646eedc5c8a83fc6b358592",
+        },
+        body: JSON.stringify({
+          // your expected POST request payload goes here
+          name: contactFormData.name,
+          email: "shaheerr7@gmail.com",
+          phone: "3127950074",
+          describe: "Help me",
+        }),
+      })
+        .then((resp) => resp.json())
+        .then((resp) => console.log(resp))
+        .catch((error) => console.log(error));
+    }
+    setSendRequest(false);
+  }, [sendRequest, contactFormData]);
+
+  return (
     <>
       <section className="bg-light py-5">
         <div className="container px-5 my-5 px-5">
@@ -70,15 +76,19 @@ return (
               <form id="contactForm" onSubmit={SubmitForm}>
                 {/* <!-- Name input--> */}
                 <div className="form-floating mb-3">
-                  {contactData.status==='success'&&<p className='text-success'>Your query has been sent</p>}
-                  {contactData.status==='error'&&<p className='text-danger'>Something went wrong!</p>}
+                  {contactData.status === "success" && (
+                    <p className="text-success">Your query has been sent</p>
+                  )}
+                  {contactData.status === "error" && (
+                    <p className="text-danger">Something went wrong!</p>
+                  )}
                   <input
                     className="form-control"
                     id="name"
                     type="text"
                     placeholder="Enter your name..."
                     defaultValue={contactData.name}
-                    onChange={change}
+                    onChange={(event) => setName(event.target.value)}
                     data-sb-validations="required"
                   />
                   <label htmlFor="name">Full name</label>
@@ -97,7 +107,7 @@ return (
                     type="email"
                     placeholder="name@example.com"
                     defaultValue={contactData.email}
-                    onChange={change}
+                    onChange={(event) => setEmail(event.target.value)}
                     data-sb-validations="required,email"
                   />
                   <label htmlFor="email">Email address</label>
@@ -121,7 +131,7 @@ return (
                     id="phone"
                     type="tel"
                     defaultValue={contactData.phone}
-                    onChange={change}
+                    onChange={(event) => setPhone(event.target.value)}
                     placeholder="(123) 456-7890"
                     data-sb-validations="required"
                   />
@@ -141,7 +151,7 @@ return (
                     datatype="text"
                     placeholder="Enter your message here..."
                     defaultValue={contactData.describe}
-                    onChange={change}
+                    onChange={(event) => setMessage(event.target.value)}
                     style={{ height: "10rem" }}
                     data-sb-validations="required"
                   ></textarea>
@@ -172,14 +182,14 @@ return (
                     Error sending message!
                   </div>
                 </div>
-                 {/*// <!-- Submit Button-->*/}
+                {/*// <!-- Submit Button-->*/}
                 <div className="d-grid">
                   <button
                     className="btn btn-primary btn-lg"
                     id="submitButton"
                     type="submit"
                     disabled={sendRequest}
-                    onClick={doThis}
+                    // onClick={doThis}
                   >
                     Submit
                   </button>
