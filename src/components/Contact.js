@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from "react";
-import axios from "axios";
+// import axios from "axios";
 
 export default function Contact() {
-  const [contactData, setContactData]=useState({
+  const [sendRequest, setSendRequest] = useState(false);
+  const [contactData, setContactData] = useState({
     'name': '',
     'email': '',
     'phone': '',
@@ -10,39 +11,48 @@ export default function Contact() {
     'status': '',
   });
   
-  const change=(event)=>{
+  const change = (event) => {
     setContactData({
       ...contactData,
       [event.target.name]: event.target.value,
-    
+      
     });
   }
-  
-  
-  const submitForm = () => {
-    const contactFormData = new FormData();
-    contactFormData.append('name', contactData.name)
-    contactFormData.append('email', contactData.email)
-    contactFormData.append('phone', contactData.phone)
-    contactFormData.append('describe', contactData.describe)
-
-    try {
-      axios.post('http://127.0.0.1:8000/ask/', contactFormData)
-        .then((response) => {
-          setContactData({
-            'name': '',
-            'email': '',
-            'phone': '',
-            'describe': '',
-            'status': 'success',
-          });
-        })
-    } catch (error) {
-      console.log(error);
-      setContactData({status: 'error'})
-    }
+  var doThis = () => {
+    console.log(contactData.name)
   }
-
+  
+//   var contactFormData = new FormData();
+//
+//   const SubmitForm = () => {
+//     contactFormData.append('name', contactData.name)
+//     contactFormData.append('email', contactData.email)
+//     contactFormData.append('phone', contactData.phone)
+//     contactFormData.append('describe', contactData.describe)
+//   }
+//   useEffect(() => {
+//     if (sendRequest) {
+//         fetch(`http://127.0.0.1:8000/ask/`, {
+//       method: 'POST',
+//       headers: {
+//         "Access-Control-Allow-Origin": "*",
+//         'Content-Type': 'application/json',
+//         "Authorization": "Token 757ab0fafa75f4c43646eedc5c8a83fc6b358592"
+//       },
+//    body: JSON.stringify({
+//      // your expected POST request payload goes here
+//         name: "Shaheer",
+//         email: "shaheerr7@gmail.com",
+//         phone:"3127950074",
+//         describe: "Help me"
+//       })
+// })
+//   .then(resp => resp.json())
+//   .then(resp => console.log(resp)).catch(error=> console.log(error))
+//     }
+//       setSendRequest(false);
+//     },[sendRequest]);
+//
 
 return (
     <>
@@ -57,7 +67,7 @@ return (
           </div>
           <div className="row gx-5 justify-content-center">
             <div className="col-lg-6">
-              <form id="contactForm" data-sb-form-api-token="API_TOKEN">
+              <form id="contactForm" onSubmit={SubmitForm}>
                 {/* <!-- Name input--> */}
                 <div className="form-floating mb-3">
                   {contactData.status==='success'&&<p className='text-success'>Your query has been sent</p>}
@@ -168,7 +178,8 @@ return (
                     className="btn btn-primary btn-lg"
                     id="submitButton"
                     type="submit"
-                    onClick={submitForm}
+                    disabled={sendRequest}
+                    onClick={doThis}
                   >
                     Submit
                   </button>
