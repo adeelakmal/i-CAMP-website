@@ -2,13 +2,13 @@ import React, { useState, useEffect } from "react";
 
 export default function Contact() {
   const [sendRequest, setSendRequest] = useState(false);
-  
+
   const [Name, setName] = useState("");
   const [Email, setEmail] = useState("");
   const [Phone, setPhone] = useState("");
   const [Message, setMessage] = useState("");
   const [Status, setStatus] = useState("");
-  
+
   const SubmitForm = (event) => {
     event.preventDefault();
     setSendRequest(true);
@@ -29,10 +29,12 @@ export default function Contact() {
         }),
       })
         .then((resp) => resp.json())
-        .then(() => setStatus('success'))
-        .catch(() => setStatus('error'));
+        .then(() => {
+          setStatus("success");
+          setSendRequest(false);
+        })
+        .catch(() => setStatus("error"));
     }
-    setSendRequest(false);
   }, [sendRequest]);
 
   return (
@@ -44,22 +46,13 @@ export default function Contact() {
               <i className="bi bi-envelope"></i>
             </div>
             <h2 className="fw-bolder">Get in touch</h2>
-            {Status === '' && (
-              <p className="lead mb-0">We'd love to hear from you</p>
-              )}
-            {Status === "success" && (
-              <p className="text-success">Your query has been sent</p>
-              )}
-            {Status === "error" && (
-              <p className="text-danger">Something went wrong!</p>
-              )}
+            <p className="lead mb-0">We'd love to hear from you</p>
           </div>
           <div className="row gx-5 justify-content-center">
             <div className="col-lg-6">
               <form id="contactForm" onSubmit={SubmitForm}>
                 {/* <!-- Name input--> */}
                 <div className="form-floating mb-3">
-                  
                   <input
                     className="form-control"
                     id="name"
@@ -144,10 +137,9 @@ export default function Contact() {
                 <div className="d-none" id="submitSuccessMessage">
                   <div className="text-center mb-3">
                     <div className="fw-bolder">Form submission successful!</div>
-                    
                   </div>
                 </div>
-                
+
                 <div className="d-none" id="submitErrorMessage">
                   <div className="text-center text-danger mb-3">
                     Error sending message!
@@ -155,37 +147,46 @@ export default function Contact() {
                 </div>
                 {/*// <!-- Submit Button-->*/}
                 <div className="d-grid">
-                  {Status === '' && (
-                  <button
-                    className="btn btn-primary btn-lg"
-                    id="submitButton"
-                    type="submit"
-                    disabled={sendRequest}
-                  >
-                    Submit
-                  </button>
+                  {Status === "" && (
+                    <button
+                      className="btn btn-primary btn-lg"
+                      id="submitButton"
+                      type="submit"
+                      disabled={sendRequest}
+                    >
+                      Submit
+                    </button>
                   )}
-                {Status === "success" && (
-                  <button
-                    className="btn btn-success btn-lg"
-                    id="submitButton"
-                    type="submit"
-                    disabled={sendRequest}
-                  >
-                    Submit
-                  </button>
+                  {Status === "success" && (
+                    <>
+                      <button
+                        className="btn btn-success btn-lg"
+                        id="submitButton"
+                        type="submit"
+                        disabled={sendRequest}
+                      >
+                        Submit
+                      </button>
+                      <p className="text-success text-center">
+                        Your query has been sent!
+                      </p>
+                    </>
                   )}
-                {Status === "error" && (
-                  <button
-                    className="btn btn-danger btn-lg"
-                    id="submitButton"
-                    type="submit"
-                    disabled={sendRequest}
-                  >
-                    Submit
-                  </button>
+                  {Status === "error" && (
+                    <>
+                      <button
+                        className="btn btn-danger btn-lg"
+                        id="submitButton"
+                        type="submit"
+                        disabled={sendRequest}
+                      >
+                        Submit
+                      </button>
+                      <p className="text-danger text-center">
+                        Something went wrong!
+                      </p>
+                    </>
                   )}
-                  
                 </div>
               </form>
             </div>
