@@ -1,42 +1,24 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
+import API from "./api_service";
 
 export default function Contact() {
-  const [sendRequest, setSendRequest] = useState(false);
 
-  const [Name, setName] = useState("");
-  const [Email, setEmail] = useState("");
-  const [Phone, setPhone] = useState("");
-  const [Message, setMessage] = useState("");
-  const [Status, setStatus] = useState("");
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [phone, setPhone] = useState("");
+  const [describe, setDescribe] = useState("");
+  const [status, setStatus] = useState("");
+  const [sendRequest, setSendRequest] = useState(false)
 
   const SubmitForm = (event) => {
+    setSendRequest(true)
     event.preventDefault();
-    setSendRequest(true);
-  };
-  useEffect(() => {
-    if (sendRequest) {
-      fetch(`http://127.0.0.1:8000/ask/`, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          // your expected POST request payload goes here
-          name: Name,
-          email: Email,
-          phone: Phone,
-          describe: Message,
-        }),
-      })
-        .then((resp) => resp.json())
-        .then(() => {
-          setStatus("success");
-          setSendRequest(false);
-        })
-        .catch(() => setStatus("error"));
-    }
-  }, [sendRequest]);
-
+    API.postContact({name,email,phone,describe}).then(()=>{
+      setStatus('success');
+      setSendRequest(false)}).catch(()=>setStatus('error'))
+    
+  }
+  
   return (
     <>
       <section className="bg-light py-5">
@@ -58,7 +40,7 @@ export default function Contact() {
                     id="name"
                     type="text"
                     placeholder="Enter your name..."
-                    defaultValue={Name}
+                    defaultValue={name}
                     onChange={(event) => setName(event.target.value)}
                     data-sb-validations="required"
                   />
@@ -77,7 +59,7 @@ export default function Contact() {
                     id="email"
                     type="email"
                     placeholder="name@example.com"
-                    defaultValue={Email}
+                    defaultValue={email}
                     onChange={(event) => setEmail(event.target.value)}
                     data-sb-validations="required,email"
                   />
@@ -101,7 +83,7 @@ export default function Contact() {
                     className="form-control"
                     id="phone"
                     type="tel"
-                    defaultValue={Phone}
+                    defaultValue={phone}
                     onChange={(event) => setPhone(event.target.value)}
                     placeholder="(123) 456-7890"
                     data-sb-validations="required"
@@ -121,8 +103,8 @@ export default function Contact() {
                     id="message"
                     datatype="text"
                     placeholder="Enter your message here..."
-                    defaultValue={Message}
-                    onChange={(event) => setMessage(event.target.value)}
+                    defaultValue={describe}
+                    onChange={(event) => setDescribe(event.target.value)}
                     style={{ height: "10rem" }}
                     data-sb-validations="required"
                   ></textarea>
@@ -147,7 +129,7 @@ export default function Contact() {
                 </div>
                 {/*// <!-- Submit Button-->*/}
                 <div className="d-grid">
-                  {Status === "" && (
+                  {status === "" && (
                     <button
                       className="btn btn-primary btn-lg"
                       id="submitButton"
@@ -157,7 +139,7 @@ export default function Contact() {
                       Submit
                     </button>
                   )}
-                  {Status === "success" && (
+                  {status === "success" && (
                     <>
                       <button
                         className="btn btn-success btn-lg"
@@ -172,7 +154,7 @@ export default function Contact() {
                       </p>
                     </>
                   )}
-                  {Status === "error" && (
+                  {status === "error" && (
                     <>
                       <button
                         className="btn btn-danger btn-lg"
