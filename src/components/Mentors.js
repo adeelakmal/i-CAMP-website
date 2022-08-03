@@ -22,7 +22,6 @@ function Mentors() {
   useEffect(() => {
     getMentors();
     // fetchImage();
-
   }, []);
 
   return (
@@ -36,13 +35,13 @@ function Mentors() {
             return (
               <div className="col-9 col-md-6 p-5">
                 {/*<img src={Img} alt="icons" />*/}
-                <div className='text-center'>
-                <img
-                  src={mentor.dp}
-                  className="img-fluid rounded img-thumbnail"
-                  alt={`${mentor.name} pic`}
-                />
-                  </div>
+                <div className="text-center">
+                  <img
+                    src={mentor.dp}
+                    className="img-fluid circle img-thumbnail"
+                    alt={`${mentor.name} pic`}
+                  />
+                </div>
                 <h2 className="text-center">{mentor.name}</h2>
                 <p className="text-center lead mb-0">{mentor.speciality}</p>
                 <p className="text-center">{mentor.description}</p>

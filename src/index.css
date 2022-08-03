@@ -167,3 +167,10 @@ circle {
 .noView{
   display: none;
 }
+
+.circle{
+  height: 200px;
+  width: 200px;
+  object-fit: cover;
+  border-radius: 50%;
+}
