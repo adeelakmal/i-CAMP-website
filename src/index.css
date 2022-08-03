@@ -174,3 +174,7 @@ circle {
   object-fit: cover;
   border-radius: 50%;
 }
+
+.S {
+  position: sticky!important;
+}
