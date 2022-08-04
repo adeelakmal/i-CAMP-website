@@ -1,6 +1,13 @@
 import React from "react";
 
 export default function Hero() {
+  const scroll_contact = () => {
+    const scrollingElement = document.scrollingElement || document.body;
+    // const Footer = querySelector("footer");
+    // console.log(scrollingElement.scrollHeight - 1300);
+    let Scroll = scrollingElement.scrollHeight-6150;
+    scrollingElement.scrollTop = Scroll;
+  };
   return (
     <header className="bg-dark py-5">
       <div className="container px-5">
@@ -23,7 +30,7 @@ export default function Hero() {
                 >
                   Get Started
                 </a> */}
-                <a className="btn btn-outline-light btn-lg px-4" href="#!">
+                <a className="btn btn-outline-light btn-lg px-4" href="#!" onClick={scroll_contact}>
                   Learn More
                 </a>
               </div>
