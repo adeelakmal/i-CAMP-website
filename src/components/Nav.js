@@ -12,7 +12,7 @@ export default function Nav() {
     const scrollingElement = document.scrollingElement || document.body;
     // const Footer = querySelector("footer");
     // console.log(scrollingElement.scrollHeight - 1300);
-    let Scroll = scrollingElement.scrollHeight-9999;
+    let Scroll = 0;
     scrollingElement.scrollTop = Scroll;
   };
   return (
